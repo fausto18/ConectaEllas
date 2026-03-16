@@ -1,3 +1,4 @@
+/* Hero.tsx */
 import "./Hero.css";
 
 export default function Hero({ lang }: { lang: string }) {
@@ -9,13 +10,12 @@ export default function Hero({ lang }: { lang: string }) {
         <h1 className="hero-title">
           Conecta <span>Ella's</span>
         </h1>
-        <p className="hero-subtitle">
+        <p className="hero-description">
           {isEn 
             ? "Connecting talents and transforming realities through technology and business." 
             : "Conectando talentos e transformando realidades através da tecnologia e negócios."}
         </p>
         <div className="hero-buttons">
-          {/* Agora aponta para a secção de contacto */}
           <a href="#contacto" className="btn-primary">
             {isEn ? "Join Now" : "Participar Agora"}
           </a>

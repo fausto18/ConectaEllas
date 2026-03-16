@@ -61,7 +61,6 @@ export default function Navbar({ toggleTheme, currentTheme, currentLang, setLang
         <ul className="nav-links">
           <li><HashLink smooth to="/#inicio" className={isActive("/") ? "pill-active" : ""}>{t.inicio}</HashLink></li>
           <li><Link to="/galeria" className={isActive("/galeria") ? "pill-active" : ""}>{t.galeria}</Link></li>
-          <li><HashLink smooth to="/#projects" className={location.hash === "#projects" ? "pill-active" : ""}>{t.projetos}</HashLink></li>
           <li><HashLink smooth to="/#experience" className={location.hash === "#experience" ? "pill-active" : ""}>{t.path}</HashLink></li>
           <li><Link to="/articles" className={isActive("/articles") ? "pill-active" : ""}>{t.artigos}</Link></li>
         </ul>
