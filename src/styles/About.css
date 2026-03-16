@@ -1,0 +1,123 @@
+/* about.css */
+
+.about-section {
+  background-color: var(--bg-color);
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.about-container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Cabeçalho */
+.about-header-main {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.about-title-main {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.title-underline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #00d8ff, #a259ff);
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+/* Card Principal de Bio - ORGANIZADO */
+.about-main-card {
+  background-color: var(--card-bg);
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 24px;
+  padding: 50px;
+  margin: 0 auto 40px auto;
+  max-width: 850px; /* Reduzido levemente para o texto não espalhar muito */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.about-main-card p {
+  color: var(--text-color);
+  opacity: 0.85;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  text-align: justify; /* Mantém as bordas do texto retas e organizadas */
+  hyphens: auto;
+}
+
+/* Remove o margin-bottom do último parágrafo */
+.about-main-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Grid de Destaques */
+.about-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* Feature Card */
+.feature-card {
+  background-color: var(--card-bg);
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 20px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinhamento técnico à esquerda dentro do card */
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: #00d8ff;
+}
+
+.feature-icon.blue {
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .about-features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-main-card {
+    padding: 30px;
+    text-align: left; /* No mobile, o justify pode criar espaços estranhos */
+  }
+}

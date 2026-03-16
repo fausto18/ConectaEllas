@@ -1,0 +1,72 @@
+/* hero.css - Versão Reajustada e Adaptável */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color); /* Substituído #ffffff */
+  text-align: center;
+  padding: 0 5%;
+  transition: background-color 0.3s ease;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--text-color); /* Substituído #0f172a */
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.hero-title span {
+  color: var(--accent-color); /* Usa o azul dinâmico do tema */
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-dim); /* Usa a variável de texto suave do index.css */
+  max-width: 650px;
+  margin: 0 auto 40px auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Botão Participar (Destaque) */
+.btn-primary {
+  background: var(--accent-color);
+  color: #ffffff; /* Sempre branco para contraste no azul */
+  padding: 16px 35px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+  filter: brightness(1.1);
+}
+
+/* Botão Saiba Mais (Outline) */
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-color);
+  padding: 16px 35px;
+  border-radius: 12px;
+  border: 2px solid var(--border-color); /* Substituído #e2e8f0 */
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-color);
+  background: rgba(59, 130, 246, 0.05);
+  transform: translateY(-3px);
+}

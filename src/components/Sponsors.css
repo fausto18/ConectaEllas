@@ -1,0 +1,82 @@
+/* Sponsors.css */
+.sponsors-bar {
+  width: 100%;
+  background-color: var(--bg-color);
+  padding: 25px 0; /* Barra mais fina e elegante */
+  border-top: 1px solid var(--border-color);
+  transition: background-color 0.3s ease;
+}
+
+.sponsors-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sponsors-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  letter-spacing: 1.2px;
+  white-space: nowrap;
+}
+
+.sponsors-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  flex-wrap: wrap;
+}
+
+.sponsor-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.sponsor-item:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* CONFIGURAÇÃO PARA LOGOTIPOS PEQUENOS E REAIS */
+.sponsor-logo {
+  height: 40px; /* Tamanho padrão de barra de parceiros */
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  /* Removidos todos os filtros de grayscale e invert */
+  filter: none !important; 
+  opacity: 1; /* Cor total */
+  transition: all 0.3s ease;
+}
+
+/* Responsividade para telemóveis */
+@media (max-width: 768px) {
+  .sponsors-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .sponsors-list {
+    gap: 30px;
+  }
+
+  .sponsor-logo {
+    height: 30px; /* Um pouco menor em telas pequenas */
+  }
+}
+
+.sponsors-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px; /* Aumente aqui se quiser mais espaço entre os logos */
+}

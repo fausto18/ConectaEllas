@@ -1,0 +1,19 @@
+:root {
+  /* Tema Claro (Original com Fundo Branco) */
+  --bg-about: #ffffff;
+  --bg-card-about: #f8fafc;
+  --text-about-title: #0f172a;
+  --text-about-p: #334155;
+  --text-about-dim: #64748b;
+  --border-about: #e2e8f0;
+}
+
+[data-theme='dark'], .dark-mode {
+  /* Tema Escuro (Original com Fundo Escuro) */
+  --bg-about: #0f172a;
+  --bg-card-about: rgba(30, 41, 59, 0.7);
+  --text-about-title: #f8fafc;
+  --text-about-p: #cbd5e1;
+  --text-about-dim: #94a3b8;
+  --border-about: rgba(255, 255, 255, 0.08);
+}

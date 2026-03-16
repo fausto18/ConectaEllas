@@ -1,0 +1,56 @@
+/* index.css */
+:root {
+  /* --- TEMA DARK (Padrão) --- */
+  --bg-color: #020617;
+  --text-color: #ffffff;
+  --text-dim: #94a3b8;
+  
+  /* Cards e Superfícies */
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --card-glass: blur(12px);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  
+  /* Identidade e Navegação */
+  --accent-color: #3b82f6;
+  --nav-bg: rgba(5, 7, 13, 0.8);
+  --pill-bg: #ffffff;
+  --pill-text: #020617;
+}
+
+[data-theme='light'] {
+  /* --- TEMA LIGHT --- */
+  --bg-color: #f8fafc;
+  --text-color: #0f172a;
+  --text-dim: #64748b;
+  
+  /* Cards e Superfícies */
+  --card-bg: #ffffff;
+  --card-glass: none;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  
+  /* Identidade e Navegação */
+  --accent-color: #2563eb;
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --pill-bg: #000000;
+  --pill-text: #ffffff;
+}
+
+/* Reset e Base Global */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Inter', system-ui, sans-serif; /* Sugestão de fonte clean */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  scroll-behavior: smooth;
+}
+
+/* Estilo de Seleção de Texto */
+::selection {
+  background-color: var(--accent-color);
+  color: white;
+}

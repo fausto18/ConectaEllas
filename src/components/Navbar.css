@@ -1,0 +1,170 @@
+/* --- ESTILO DESKTOP --- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 80px;
+  background: var(--nav-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+/* Lado Esquerdo */
+.nav-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Seta visível apenas na Galeria */
+.navbar:has(.pill-active[href*="/galeria"]) .nav-left {
+  visibility: visible;
+  opacity: 1;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-top: 15px; /* Alinhamento vertical com as pills */
+}
+
+/* Centro (Navegação Centralizada) */
+.nav-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 8px 22px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.pill-active {
+  background-color: var(--pill-bg) !important;
+  color: var(--pill-text) !important;
+  font-weight: 600;
+}
+
+/* Lado Direito e Dropdowns */
+.nav-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.dropdown-wrapper { position: relative; }
+
+.icon-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(128, 128, 128, 0.2);
+  background: transparent;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.dropdown-box {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  background: #0b0f1a; /* Fundo escuro conforme referência */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 8px;
+  min-width: 180px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.drop-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.drop-item.selected {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.lang-code {
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-right: 8px;
+  color: #64748b;
+}
+
+.item-content { display: flex; align-items: center; gap: 10px; }
+
+/* --- ESTILO MOBILE --- */
+.menu-toggle, .nav-menu-mobile { display: none; }
+
+@media (max-width: 850px) {
+  .desktop-only { display: none; }
+  .menu-toggle { display: block; border: none; background: none; color: var(--text-color); font-size: 2rem; }
+  .nav-left { flex: none; visibility: visible; opacity: 1; margin-top: 0; }
+
+  .nav-menu-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #0b0f1a;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 25px;
+    transform: translateY(-100%);
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 2000;
+  }
+
+  .nav-menu-mobile.open { transform: translateY(0); }
+
+  .nav-links-mobile li a { color: #fff; display: block; padding: 18px 0; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+  .selection-item { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-radius: 12px; color: #fff; margin-top: 5px; }
+  .selection-item.active { background: rgba(56, 189, 248, 0.1); color: #38bdf8; }
+  .section-title { color: #64748b; font-size: 0.85rem; margin-top: 20px; }
+  .lang-code-mb { color: #38bdf8; margin-right: 10px; }
+  .check-icon { color: #38bdf8; }
+}
+
+/* VARIÁVEIS DE TEMA */
+[data-theme='dark'] {
+  --nav-bg: #0f172a; --text-color: #f8fafc; --pill-bg: #ffffff; --pill-text: #0f172a;
+}
+[data-theme='light'] {
+  --nav-bg: #f8faff; --text-color: #1a1a1a; --pill-bg: #000; --pill-text: #fff;
+}

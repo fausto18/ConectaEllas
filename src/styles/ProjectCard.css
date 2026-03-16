@@ -1,0 +1,55 @@
+.project-card {
+  background: var(--card-bg, #fff);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.project-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  color: #fff; /* Nome do projeto em branco */
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #fff; /* Descrição em branco */
+  margin-bottom: 12px;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--text-muted, #ccc); /* meta info mais clara */
+  margin-bottom: 12px;
+}
+
+.project-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.project-card a {
+  display: inline-block;
+  padding: 8px 12px;
+  background: var(--accent, #0070f3);
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.project-card a:hover {
+  background: var(--accent-hover, #005bb5);
+}

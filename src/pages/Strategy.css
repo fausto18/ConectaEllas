@@ -1,0 +1,126 @@
+/* Strategy.css */
+
+.strategy-section {
+  padding: 80px 10%;
+  background-color: var(--bg-color); /* Adaptável ao tema */
+  transition: background-color 0.3s ease;
+}
+
+.section-main-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 60px;
+  color: var(--text-color); /* Adaptável */
+  font-weight: 800;
+}
+
+.strategy-group {
+  margin-bottom: 60px;
+}
+
+.group-title {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-bottom: 25px;
+  font-weight: 600;
+  border-left: 4px solid var(--accent-color);
+  padding-left: 15px;
+}
+
+/* Grid de Fases - Organização Original */
+.fases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.fase {
+  background: var(--card-bg); /* Adaptável */
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color); /* Adaptável */
+  transition: all 0.3s ease;
+  color: var(--text-color);
+}
+
+.fase:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+}
+
+.phase-badge {
+  background: var(--accent-color);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+/* Cards de Marketing e Org - Organização Original */
+.org-card, .marketing-card-simple {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+/* Hierarquia Visual - Organização Original */
+.hierarchy-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node {
+  background: var(--node-bg); /* Adaptável */
+  padding: 12px 25px;
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--text-color); /* Adaptável */
+  min-width: 120px;
+  text-align: center;
+}
+
+.node.master {
+  background: var(--accent-color);
+  color: #ffffff; /* CEO sempre branco */
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.connector {
+  width: 2px;
+  height: 30px;
+  background: linear-gradient(to bottom, var(--accent-color), transparent);
+}
+
+.sub-nodes {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .sub-nodes {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.node {
+  background: var(--bg-color); /* Fica branco no light e preto no dark */
+  border: 1px solid var(--accent-color);
+  color: var(--text-color);
+  /* mantém o resto da tua organização original */
+}
+
+.node.master {
+  background: var(--accent-color);
+  color: #ffffff; /* O líder mantém-se sempre branco no azul */
+}

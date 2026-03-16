@@ -1,0 +1,216 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GLOBAIS DE SCROLL E BODY
+   ========================================================================== */
+html {
+  scroll-behavior: smooth !important;
+  overflow-y: auto !important; 
+  height: auto !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Usa variáveis para trocar de cor automaticamente */
+  background-color: var(--bg-color); 
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden !important; 
+  height: auto !important;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Container principal que envolve as rotas */
+.page-wrapper {
+  display: block; 
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+/* ==========================================================================
+   2. SEÇÃO HERO (INÍCIO)
+   ========================================================================== */
+.home {
+  min-height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Gradiente que se adapta ao fundo definido no index.css */
+  background: radial-gradient(circle at 20% 50%, var(--nav-bg), var(--bg-color));
+  color: var(--text-color);
+  text-align: center;
+  padding: 80px 2rem 2rem 2rem;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.home-content {
+  max-width: 900px;
+  width: 100%;
+}
+
+.home-badge {
+  /* No modo claro, o card-bg vira um cinza muito suave ou branco */
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.home-name {
+  font-size: 4rem; 
+  margin: 20px 0;
+  font-weight: 800;
+  /* Mantém o degradê azul, que funciona bem em ambos os temas */
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+.home-role {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: var(--text-color);
+  opacity: 0.9;
+  min-height: 1.2em; 
+}
+
+.home-description {
+  /* Opacidade garante que o texto não fique agressivo no modo claro */
+  color: var(--text-color);
+  opacity: 0.75;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   3. BOTÕES DE AÇÃO
+   ========================================================================== */
+.home-buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-primary, .btn-outline {
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  color: white !important; /* Texto sempre branco para contraste no fundo azul */
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.btn-outline {
+  border: 1px solid #3b82f6;
+  color: var(--text-color); /* Texto escuro no modo claro e branco no escuro */
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   4. ESTRUTURA DAS SEÇÕES (About, Skills, Experience, etc)
+   ========================================================================== */
+#sobre, #skills, #experience, #projects, #articles, #contact {
+  min-height: 100vh !important; 
+  padding: 100px 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* Importante: fundo transparente para herdar a cor do body/container */
+  background-color: transparent; 
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Títulos das seções sempre visíveis */
+section h2 {
+  color: var(--text-color);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   5. SCROLL INDICATOR
+   ========================================================================== */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--text-color);
+  opacity: 0.3;
+  border-radius: 20px;
+  position: relative;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background: #3b82f6;
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll-anim 1.8s infinite;
+}
+
+@keyframes scroll-anim {
+  0% { opacity: 0; top: 8px; }
+  30% { opacity: 1; }
+  100% { opacity: 0; top: 25px; }
+}
+
+/* ==========================================================================
+   6. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .home-name { font-size: 2.5rem; }
+  .home-role { font-size: 1.4rem; }
+  .btn-primary, .btn-outline { width: 100%; max-width: 300px; }
+  #sobre, #skills, #experience, #projects, #articles, #contact {
+    padding: 80px 15px;
+  }
+}

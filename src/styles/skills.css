@@ -1,0 +1,93 @@
+/* Container Principal */
+.skills-container {
+  background-color: #0b0e14 !important;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  align-items: flex-start; /* Força o alinhamento de todos os grupos à esquerda */
+}
+
+/* Grupos de Categorias */
+.skills-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%; /* Ocupa a largura total */
+  align-items: flex-start; /* Alinha o cabeçalho e a grid à esquerda */
+}
+
+/* Cabeçalho (Título + Barra Colorida) */
+.skills-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start; /* Garante que o título não flutue */
+}
+
+.skills-bar {
+  width: 4px;
+  height: 24px;
+  border-radius: 4px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.skills-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  display: block !important;
+}
+
+/* Grid de Badges - AQUI ESTÁ A CORREÇÃO */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 12px;
+  padding-left: 16px;
+  width: 100%;
+  justify-content: flex-start; /* Força as pílulas a começarem sempre na esquerda */
+}
+
+/* Estilização do Badge */
+.skill-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 18px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.skill-label {
+  font-size: 0.95rem;
+  color: #ccd6f6;
+  font-weight: 500;
+}
+
+/* --- MANUTENÇÃO DAS CORES ORIGINAIS --- */
+
+/* Frontend & Mobile - Ciano */
+.cyan .skills-bar { background-color: #00d8ff !important; }
+.cyan .skills-header h2 { color: #00d8ff !important; }
+
+/* Backend & APIs - Verde */
+.green .skills-bar { background-color: #2ecc71 !important; }
+.green .skills-header h2 { color: #2ecc71 !important; }
+
+/* Bases de Dados - Roxo */
+.purple .skills-bar { background-color: #a259ff !important; }
+.purple .skills-header h2 { color: #a259ff !important; }
+
+/* Data, ML & IA - Rosa */
+.pink .skills-bar { background-color: #ff4d94 !important; }
+.pink .skills-header h2 { color: #ff4d94 !important; }
+
+/* DevOps & Sistemas - Laranja */
+.orange .skills-bar { background-color: #f39c12 !important; }
+.orange .skills-header h2 { color: #f39c12 !important; }
