@@ -1,4 +1,3 @@
-/* Hero.tsx */
 import "./Hero.css";
 
 export default function Hero({ lang }: { lang: string }) {

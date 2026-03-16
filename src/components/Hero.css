@@ -1,4 +1,5 @@
-/* src/components/Hero.css */
+/* src/components/Hero.css - Versão Final Reajustada */
+
 .hero-section {
   min-height: 80vh;
   display: flex;
@@ -11,7 +12,7 @@
 }
 
 .hero-title {
-  font-size: 3.2rem; /* Reduzido para Desktop */
+  font-size: 3.2rem;
   font-weight: 850;
   color: var(--text-color);
   margin-bottom: 1.2rem;
@@ -21,7 +22,7 @@
 .hero-title span { color: var(--accent-color); }
 
 .hero-description {
-  font-size: 1.1rem; /* Descrição menor e elegante */
+  font-size: 1.1rem;
   color: var(--text-dim);
   max-width: 580px;
   margin: 0 auto 2.5rem;
@@ -41,10 +42,41 @@
 .btn-primary { background: var(--accent-color); color: #fff; }
 .btn-secondary { border: 2px solid var(--border-color); color: var(--accent-color); }
 
-/* --- MOBILE --- */
+/* --- MOBILE (Retrato/Vertical) --- */
 @media (max-width: 768px) {
-  .hero-title { font-size: 2.1rem; } /* Letra pequena para o telemóvel */
+  .hero-title { font-size: 2.1rem; } 
   .hero-description { font-size: 0.95rem; padding: 0 10px; }
   .hero-buttons { flex-direction: column; align-items: center; width: 100%; }
   .btn-primary, .btn-secondary { width: 100%; max-width: 280px; }
+}
+
+/* --- MOBILE (Rotação/Paisagem/Landscape) --- */
+/* Esta parte resolve o problema das fotos deitadas que enviou */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto; 
+    padding: 40px 5%;
+  }
+
+  .hero-title {
+    font-size: 1.8rem; /* Letra menor para caber na altura curta */
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-description {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    max-width: 85%;
+  }
+
+  .hero-buttons {
+    flex-direction: row; /* Botões lado a lado para não empilhar e sumir */
+    gap: 10px;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    width: auto;
+  }
 }
