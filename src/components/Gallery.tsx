@@ -16,10 +16,10 @@ export interface GalleryItem {
   tags: string[];
 }
 
-// Dados da Galeria
+// Dados da Galeria Consolidados
 export const galleryData: GalleryItem[] = [
   {
-    id: "Conecta-Ellas-2026",
+    id: "conecta-ellas-conferencia-2026",
     title: { 
       pt: "Conferência Nacional de Mulheres em Tecnologia e Negócio", 
       en: "National Conference of Women in Technology and Business" 
@@ -29,8 +29,8 @@ export const galleryData: GalleryItem[] = [
       en: "A milestone for Angola's innovation ecosystem, focused on digital inclusion and female entrepreneurship." 
     },
     fullDescription: { 
-      pt: "Realizada no Memorial Dr. António Agostinho Neto (MAAN), a conferência reuniu líderes e especialistas para discutir a transformação digital. Eixos centrais: Literacia Digital, Acesso ao Financiamento e Networking. O evento visou alinhar Angola com as metas globais de desenvolvimento sustentável e igualdade de género.", 
-      en: "Held at the Dr. António Agostinho Neto Memorial (MAAN), the conference brought together leaders and experts to discuss digital transformation. Core pillars: Digital Literacy, Access to Finance, and Networking. The event aimed to align Angola with global sustainable development and gender equality goals." 
+      pt: "Realizada no Memorial Dr. António Agostinho Neto (MAAN), a conferência reuniu líderes e especialistas para discutir a transformação digital. Eixos centrais: Literacia Digital, Acesso ao Financiamento e Networking.", 
+      en: "Held at the Dr. António Agostinho Neto Memorial (MAAN), the conference brought together leaders and experts to discuss digital transformation." 
     },
     date: "2026-03-11",
     location: "Memorial Dr. António Agostinho Neto, Luanda, Angola",
@@ -46,11 +46,38 @@ export const galleryData: GalleryItem[] = [
       "/Eventos2026/WhatsApp Image 2026-03-12 at 12.48.46 AM.jpeg",
       "/uploads/conectaEllas/WhatsApp Image 2026-03-12 at 11.56.27 PM.jpeg",
       "/uploads/conectaEllas/WhatsApp Image 2026-03-12 at 2.24.43 PM (1).jpeg",
-      
     ],
     tags: ["Mulheres em Tech", "Inovação", "Angola", "Empreendedorismo"] 
   },
-
+  {
+    id: "conecta-ellas-oradores-2026",
+    title: { 
+      pt: "Painel de Oradores e Estrategistas", 
+      en: "Speakers and Strategists Panel" 
+    },
+    description: { 
+      pt: `É com enorme satisfação que o projeto Conecta Ellas reúne um painel de excelência. Sob a liderança de Floripis Assis, contamos com figuras como Sandra Catraio, Kwaba Massocolo, Jessica Luís e especialistas como Fausto Sacufundala e Maria António.`, 
+      en: "The Conecta Ellas project brings together a panel of excellence, featuring leaders like Floripis Assis and experts like Fausto Sacufundala." 
+    },
+    fullDescription: { 
+      pt: "O evento foi enriquecido pelas vozes de Emília Alfredo Gomes Manuel, Josefa Lineth Miguel de Oliveira, Ângela Magalhães, Victorina Casimiro, Katla Gomes, Cláudia Nanga Francisco, Helena Sebastião, Verônica Teixeira,e Claudia Adricla.", 
+      en: "A diverse group of professionals focused on empowering the female ecosystem in Angola." 
+    },
+    date: "2026-03-11",
+    location: "Memorial Dr. António Agostinho Neto, Luanda, Angola",
+    category: { pt: "Oradores", en: "Speakers" },
+    image: "/Eventos2026/Conferencia.jpeg",
+    extraImages: [
+      "/Eventos2026/Lilhan Barbosa.jpeg", 
+      "/Eventos2026/Louuise.jpeg", 
+      "/Eventos2026/Mari Pongue.jpeg",
+      "/Eventos2026/Maria Lima.jpeg",
+      "/Eventos2026/Rosemere.jpeg", 
+      "/Eventos2026/Venancio.jpeg",
+      "/Eventos2026/Musica.jpeg",
+    ],
+    tags: ["Liderança", "Networking", "Angola", "Especialistas"] 
+  }
 ];
 
 interface GalleryProps {
