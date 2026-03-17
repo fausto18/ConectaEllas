@@ -73,7 +73,7 @@ export default function Contact({ lang }: any) {
           <FaFacebook size={22} />
           <div>
             <span>Facebook</span>
-            <strong>Conecta Ella's</strong>
+            <strong>Conecta Ellas</strong>
           </div>
         </a>
       </div>
