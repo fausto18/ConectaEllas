@@ -2,8 +2,8 @@ import React from "react";
 import {
   FaEnvelope,
   FaWhatsapp,
-  FaInstagram, // Importado
-  FaFacebook,  // Importado
+  FaInstagram, 
+  FaFacebook,
 } from "react-icons/fa";
 import "./Contact.css";
 

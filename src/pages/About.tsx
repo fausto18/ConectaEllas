@@ -1,29 +1,37 @@
-import { FiTarget, FiZap, FiCheckCircle, FiTrendingUp } from "react-icons/fi";
+import { FiTarget, FiEye, FiShield, FiStar } from "react-icons/fi";
 import "./About.css";
 
 export default function About({ lang }: { lang: string }) {
   const t = {
     pt: {
       slogan: "Conectando mentes, transformando o futuro.",
-      title: "Sobre o Conecta Ellas",
-      p1: "O Conecta Ellas é uma plataforma de aceleração tecnológica e profissional que visa unir talentos de Angola ao ecossistema global, arquitetando soluções que transcendem o código.",
-      purpose: "Propósito",
-      purposeDesc: "Promover autonomia financeira e inclusão digital para mulheres, criando oportunidades no ecossistema tecnológico angolano.",
-      metas: "Metas Iniciais",
-      metasDesc: "Programa de formação e mentoria com foco em literacia digital e capacitação tecnológica.Certificar 300 bolsas formativas  em tecnologia e empreendedorismo digital até o final do ano.",
-      servicos: "Produtos e Serviços",
-      plano: "Plano Estratégico",
+      title: "Sobre o Conecta Ella's",
+      p1: "O Conecta Ella's é uma plataforma nacional de conexão, capacitação e visibilidade para mulheres nas áreas de tecnologia, inovação e negócios.",
+      ambassadorLabel: "Embaixadora Conecta Ella's",
+      ambassadorName: "Floripis Assis",
+      missao: "Missão",
+      missaoDesc: "Reduzir desigualdades e criar pontes reais entre o talento feminino e o ecossistema tecnológico nacional.",
+      visao: "Visão",
+      visaoDesc: "Ser o movimento de referência em Angola para o empoderamento feminino e sustentabilidade de negócios digitais.",
+      valores: "Valores",
+      valoresDesc: "Inovação, Inclusividade, Colaboração Estratégica e Empoderamento Feminino.",
+      objetivo: "Objetivo 2026",
+      objetivoDesc: "Promover a vanguarda tecnológica e certificar 300 bolsas em empreendedorismo digital.",
     },
     en: {
       slogan: "Connecting minds, transforming the future.",
       title: "About Conecta Ellas",
-      p1: "Conecta Ellas is a tech and professional acceleration platform aiming to connect Angolan talent to the global ecosystem, architecting solutions that transcend code.",
-      purpose: "Purpose",
-      purposeDesc: " Promote financial autonomy and digital inclusion for women, creating opportunities in Angola's tech ecosystem.",
-      metas: "Initial Goals",
-      metasDesc: "Training and mentorship program focused on digital literacy and tech empowerment. Certify 300 training scholarships in technology and digital entrepreneurship by the end of the year.",
-      servicos: "Products & Services",
-      plano: "Strategic Plan",
+      p1: "Conecta Ella's is a national platform for connection, training, and visibility for women in technology, innovation, and business.",
+      ambassadorLabel: "Conecta Ella's Ambassador",
+      ambassadorName: "Floripis Assis",
+      missao: "Mission",
+      missaoDesc: "Reduce inequalities and create real bridges between female talent and the national tech ecosystem.",
+      visao: "Vision",
+      visaoDesc: "To be the benchmark movement in Angola for female empowerment and digital business sustainability.",
+      valores: "Values",
+      valoresDesc: "Innovation, Inclusivity, Strategic Collaboration, and Female Empowerment.",
+      objetivo: "2026 Objective",
+      objetivoDesc: "Promote technological vanguard and certify 300 scholarships in digital entrepreneurship.",
     }
   };
 
@@ -41,31 +49,35 @@ export default function About({ lang }: { lang: string }) {
 
         <div className="about-main-card">
           <p>{content.p1}</p>
+          <div className="ambassador-mention">
+            <small>{content.ambassadorLabel}</small>
+            <p><strong>{content.ambassadorName}</strong></p>
+          </div>
         </div>
         
         <div className="about-grid">
           <div className="feature-card">
             <FiTarget className="feature-icon" />
-            <h3>{content.purpose}</h3>
-            <p>{content.purposeDesc}</p>
+            <h3>{content.missao}</h3>
+            <p>{content.missaoDesc}</p>
           </div>
 
           <div className="feature-card">
-            <FiCheckCircle className="feature-icon" />
-            <h3>{content.metas}</h3>
-            <p>{content.metasDesc}</p>
+            <FiEye className="feature-icon" />
+            <h3>{content.visao}</h3>
+            <p>{content.visaoDesc}</p>
           </div>
 
           <div className="feature-card">
-            <FiZap className="feature-icon" />
-            <h3>{content.servicos}</h3>
-            <p>Consultoria técnica, Desenvolvimento de APIs e Mentorias Especializadas.</p>
+            <FiShield className="feature-icon" />
+            <h3>{content.valores}</h3>
+            <p>{content.valoresDesc}</p>
           </div>
 
           <div className="feature-card">
-            <FiTrendingUp className="feature-icon" />
-            <h3>{content.plano}</h3>
-            <p>Expansão modular focada em parcerias acadêmicas e hubs de inovação.</p>
+            <FiStar className="feature-icon" />
+            <h3>{content.objetivo}</h3>
+            <p>{content.objetivoDesc}</p>
           </div>
         </div>
       </div>

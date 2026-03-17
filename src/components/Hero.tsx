@@ -12,11 +12,11 @@ export default function Hero({ lang }: { lang: string }) {
         <p className="hero-description">
           {isEn 
             ? "Connecting talents and transforming realities through technology and business." 
-            : "Conectando talentos e transformando realidades através da tecnologia e negócios."}
+            : "Angola Conecta Ellas é o início de um ciclo estratégico nacional orientado para mulheres qu lideram o futuro de Angola."}
         </p>
         <div className="hero-buttons">
           <a href="#contacto" className="btn-primary">
-            {isEn ? "Join Now" : "Participar Agora"}
+            {isEn ? "Join Now" : "✉️Entrar em Contacto"}
           </a>
           
           <a href="#servicos" className="btn-secondary">

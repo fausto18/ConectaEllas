@@ -7,36 +7,52 @@ export default function Strategy({ lang }: { lang: string }) {
     <section id="estrategia" className="strategy-section">
       <div className="container">
         
-        {/* Título da Seção */}
         <h2 className="section-main-title">
           {isEn ? "Strategic Planning" : "Planeamento Estratégico"}
         </h2>
 
-        {/* Plano de Entrada */}
+        {/* Eixos Estratégicos */}
         <div className="strategy-group">
-          <h3 className="group-title">{isEn ? "Market Entry Plan" : "Plano de Entrada no Mercado"}</h3>
+          <h3 className="group-title">{isEn ? "Strategic Pillars" : "Eixos Estratégicos"}</h3>
           <div className="fases-grid">
             <div className="fase">
-              <span className="phase-badge">Fase 1</span>
-              <p>{isEn ? "Local awareness and core community building in Angola." : "Conscientização local e construção da comunidade core em Angola."}</p>
+              <span className="phase-badge">Invest Women Angola</span>
+              <p><strong>{isEn ? "Investment Platform" : "Plataforma de Investimento"}</strong></p>
+              <p>{isEn ? "Structured investment fund and Angel Investor Hub." : "Fundo estruturado de investimento e Hub de Investidores Anjo."}</p>
+              <p>{isEn ? "Business mentorship network and banking partnerships." : "Rede de madrinhas empresariais e articulação bancária."}</p>
             </div>
+            
             <div className="fase">
-              <span className="phase-badge">Fase 2</span>
-              <p>{isEn ? "Strategic partnerships with tech hubs and universities." : "Parcerias estratégicas com hubs de tecnologia e universidades."}</p>
+              <span className="phase-badge">Incuba Inova Women</span>
+              <p><strong>{isEn ? "Innovation Center" : "Centro de Inovação"}</strong></p>
+              <p>{isEn ? "National Innovation Contest and Sectoral Hackathons." : "Concurso Nacional de Inovação e Hackathons setoriais."}</p>
+              <p>{isEn ? "Pitch competitions and provincial acceleration programs." : "Pitch competitions e programas de aceleração provinciais."}</p>
             </div>
+            
             <div className="fase">
-              <span className="phase-badge">Fase 3</span>
-              <p>{isEn ? "Global scaling and AI-driven service automation." : "Escalabilidade global e automação de serviços via IA."}</p>
+              <span className="phase-badge">Mentor Women Angola</span>
+              <p><strong>{isEn ? "Leadership Hub" : "Hub de Liderança"}</strong></p>
+              <p>{isEn ? "300 training scholarships and career development." : "300 Bolsas de capacitação e desenvolvimento de carreira."}</p>
+              <p>{isEn ? "AI in business and personal branding positioning." : "Inteligência Artificial em negócios e marca pessoal."}</p>
             </div>
           </div>
         </div>
 
-        {/* Estrutura e Hierarquia - Preenchida com os nomes */}
+        {/* Organização e Hierarquia com Embaixadora */}
         <div className="strategy-group">
           <h3 className="group-title">{isEn ? "Organization & Hierarchy" : "Organização e Hierarquia"}</h3>
           <div className="org-card">
             <div className="hierarchy-box">
-              {/* Nível 1: Liderança Executiva */}
+              
+              {/* Nível 1: Embaixadora (Novo Destaque) */}
+              <div className="node ambassador">
+                <strong>Floripis Assis</strong>
+                <span>{isEn ? "Conecta Ella's Ambassador" : "Embaixadora Conecta Ella's"}</span>
+              </div>
+
+              <div className="connector"></div>
+
+              {/* Nível 2: Liderança Executiva */}
               <div className="node master">
                 <strong>Sandra Catraio</strong>
                 <span>CEO & Founder</span>
@@ -44,7 +60,7 @@ export default function Strategy({ lang }: { lang: string }) {
               
               <div className="connector"></div>
               
-              {/* Nível 2: Direção */}
+              {/* Nível 3: Direção */}
               <div className="sub-nodes">
                 <div className="node">
                   <strong>Fausto Sacufundala</strong>
@@ -63,14 +79,14 @@ export default function Strategy({ lang }: { lang: string }) {
           </div>
         </div>
 
-        {/* Marketing */}
+        {/* Marketing e Divulgação (Baseado no PDF) */}
         <div className="strategy-group">
-          <h3 className="group-title">{isEn ? "Marketing" : "Marketing e Divulgação"}</h3>
+          <h3 className="group-title">{isEn ? "Marketing & Outreach" : "Marketing e Divulgação"}</h3>
           <div className="marketing-card-simple">
             <p>
               {isEn 
-                ? "Strategy focused on technical content, SEO for developers, and high-impact networking events." 
-                : "Estratégia focada em marketing de conteúdo técnico, SEO para desenvolvedores e eventos de networking de alto impacto."}
+                ? "Omnichannel strategy focused on institutional credibility (MINTTICS, ANJE) and high-impact digital presence via O Telegrama and viral partners." 
+                : "Estratégia foca na credibilidade institucional (MINTTICS, ANJE) e presença digital de alto impacto via O Telegrama e parceiros de divulgação."}
             </p>
           </div>
         </div>

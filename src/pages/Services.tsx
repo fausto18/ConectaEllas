@@ -1,4 +1,4 @@
-import { FiCalendar, FiUsers, FiBookOpen, FiStar } from "react-icons/fi";
+import { FiMic, FiCode, FiBriefcase, FiAward } from "react-icons/fi";
 import "./Services.css";
 
 export default function Services({ lang }: { lang: string }) {
@@ -6,24 +6,24 @@ export default function Services({ lang }: { lang: string }) {
 
   const services = [
     {
-      icon: <FiCalendar />,
-      title: isEn ? "Events & Conferences" : "Eventos e Conferências",
-      desc: isEn ? "High-impact tech gatherings and networking." : "Encontros tecnológicos de alto impacto e networking."
+      icon: <FiMic />,
+      title: isEn ? "Panels & Debates" : "Painéis e Debates",
+      desc: isEn ? "Strategic discussions on public policies and financial innovation." : "Debates estratégicos sobre políticas públicas e inovação financeira."
     },
     {
-      icon: <FiStar />,
-      title: isEn ? "Tech Workshops" : "Workshops Tecnológicos",
-      desc: isEn ? "Hands-on training in modern software stacks." : "Formação prática em stacks modernas de software."
+      icon: <FiCode />,
+      title: isEn ? "Innovation Hackathon" : "Hackathon de Inovação",
+      desc: isEn ? "A space dedicated to creating and developing tech solutions." : "Espaço dedicado à criação e desenvolvimento de soluções tecnológicas."
     },
     {
-      icon: <FiUsers />,
-      title: isEn ? "Mentorship" : "Mentoria",
-      desc: isEn ? "Guidance from industry experts for your career." : "Orientação de especialistas da indústria para a sua carreira."
+      icon: <FiBriefcase />,
+      title: isEn ? "Recruitment & Selection" : "Recrutamento e Seleção",
+      desc: isEn ? "Connecting female talent with technical and leadership roles." : "Conectando talentos femininos a cargos técnicos e de liderança."
     },
     {
-      icon: <FiBookOpen />,
-      title: isEn ? "Tech Training" : "Formação em Tecnologia",
-      desc: isEn ? "Specialized courses for the global market." : "Cursos especializados voltados ao mercado global."
+      icon: <FiAward />,
+      title: isEn ? "Tech & Business Gala" : "Gala Tech & Business",
+      desc: isEn ? "High-level networking and celebration of women in technology." : "Networking de alto nível e celebração das mulheres na tecnologia."
     }
   ];
 
@@ -31,9 +31,11 @@ export default function Services({ lang }: { lang: string }) {
     <section id="servicos" className="services-section">
       <div className="container">
         <div className="services-header">
-          <h2 className="section-title">{isEn ? "Services" : "Serviços"}</h2>
+          <h2 className="section-title">{isEn ? "Activities" : "Atividades"}</h2>
           <p className="section-subtitle">
-            {isEn ? "Solutions for professional and technological growth." : "Soluções para o crescimento profissional e tecnológico."}
+            {isEn 
+              ? "Experience a complete ecosystem of innovation and empowerment." 
+              : "Experiencie um ecossistema completo de inovação e empoderamento."}
           </p>
         </div>
 

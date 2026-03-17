@@ -1,8 +1,8 @@
-/* Strategy.css */
+/* Strategy.css - Reajustado */
 
 .strategy-section {
   padding: 80px 10%;
-  background-color: var(--bg-color); /* Adaptável ao tema */
+  background-color: var(--bg-color);
   transition: background-color 0.3s ease;
 }
 
@@ -10,7 +10,7 @@
   text-align: center;
   font-size: 2.8rem;
   margin-bottom: 60px;
-  color: var(--text-color); /* Adaptável */
+  color: var(--text-color);
   font-weight: 800;
 }
 
@@ -27,7 +27,7 @@
   padding-left: 15px;
 }
 
-/* Grid de Fases - Organização Original */
+/* Grid de Fases - Ajuste para as novas descrições */
 .fases-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -35,13 +35,20 @@
 }
 
 .fase {
-  background: var(--card-bg); /* Adaptável */
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
   padding: 30px;
   border-radius: 16px;
-  border: 1px solid var(--border-color); /* Adaptável */
+  border: 1px solid var(--border-color);
   transition: all 0.3s ease;
   color: var(--text-color);
+}
+
+.fase p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  opacity: 0.9;
 }
 
 .fase:hover {
@@ -61,16 +68,7 @@
   margin-bottom: 15px;
 }
 
-/* Cards de Marketing e Org - Organização Original */
-.org-card, .marketing-card-simple {
-  background: var(--card-bg);
-  padding: 40px;
-  border-radius: 16px;
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-}
-
-/* Hierarquia Visual - Organização Original */
+/* Hierarquia Visual - Reajuste para incluir Embaixadora */
 .hierarchy-box {
   display: flex;
   flex-direction: column;
@@ -78,26 +76,40 @@
 }
 
 .node {
-  background: var(--node-bg); /* Adaptável */
+  background: var(--bg-color);
   padding: 12px 25px;
   border: 1px solid var(--accent-color);
   border-radius: 8px;
   font-weight: 600;
-  color: var(--text-color); /* Adaptável */
-  min-width: 120px;
+  color: var(--text-color);
+  min-width: 180px; /* Aumentado para nomes completos */
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.node span {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* Estilo Especial para a Embaixadora */
+.node.ambassador {
+  border: 2px solid #ffd700; /* Destaque em tom dourado/elite */
+  background: rgba(255, 215, 0, 0.05);
 }
 
 .node.master {
   background: var(--accent-color);
-  color: #ffffff; /* CEO sempre branco */
+  color: #ffffff;
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
 }
 
 .connector {
   width: 2px;
   height: 30px;
-  background: linear-gradient(to bottom, var(--accent-color), transparent);
+  background: linear-gradient(to bottom, var(--accent-color), var(--accent-color));
 }
 
 .sub-nodes {
@@ -106,21 +118,23 @@
   margin-top: 5px;
 }
 
-@media (max-width: 768px) {
+/* Responsividade Mobile e Rotação */
+@media (max-width: 850px) {
+  .strategy-section { padding: 40px 5%; }
+  
   .sub-nodes {
     flex-direction: column;
     align-items: center;
   }
+  
+  .fases-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.node {
-  background: var(--bg-color); /* Fica branco no light e preto no dark */
-  border: 1px solid var(--accent-color);
-  color: var(--text-color);
-  /* mantém o resto da tua organização original */
-}
-
-.node.master {
-  background: var(--accent-color);
-  color: #ffffff; /* O líder mantém-se sempre branco no azul */
+/* Ajuste para Telefone Deitado */
+@media (max-height: 500px) and (orientation: landscape) {
+  .fases-grid {
+    grid-template-columns: repeat(2, 1fr); /* Melhora visual na rotação */
+  }
 }

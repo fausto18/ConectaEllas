@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import "./Header.css"; // Certifique-se de ter o CSS para o menu
+import "./Header.css";
 
 export default function Header() {
   const [active, setActive] = useState("Início");
