@@ -43,8 +43,9 @@ export const galleryData: GalleryItem[] = [
       "/uploads/conectaEllas/WhatsApp Image 2026-03-12 at 12.13.33 PM.jpeg",
       "/uploads/conectaEllas/WhatsApp Image 2026-03-12 at 2.24.45 PM (1).jpeg", 
       "/uploads/conectaEllas/WhatsApp Image 2026-03-12 at 2.24.45 PM.jpeg",
-      "/uploads/conectaEllas/WhatsApp Image 2026-03-12 at 2.24.43 PM (3).jpeg",
-      "/uploads/conectaEllas/WhatsApp Image 2026-03-12 at 2.24.43 PM (1).jpeg"
+      "/Eventos2026/WhatsApp Image 2026-03-12 at 12.48.46 AM.jpeg",
+      "/uploads/conectaEllas/WhatsApp Image 2026-03-12 at 11.56.27 PM.jpeg",
+      "/uploads/conectaEllas/WhatsApp Image 2026-03-12 at 2.24.43 PM (1).jpeg",
       
     ],
     tags: ["Mulheres em Tech", "Inovação", "Angola", "Empreendedorismo"] 

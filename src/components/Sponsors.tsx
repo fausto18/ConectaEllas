@@ -9,7 +9,6 @@ export default function Sponsors({ lang }: { lang: string }) {
   const sponsors = [
     { name: "CCIAM", logo: "/logos/CCIAM.webp" },
     { name: "Cavalinho", logo: "/logos/Logo.webp" },
-    { name: "H&S", logo: "/logos/H&S.webp" },
     { name: "MINTTICS", logo: "/logos/MINTTICS.webp" },
     { name: "Hortalinda", logo: "/logos/hortalinda.webp" },
   ];

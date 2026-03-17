@@ -33,7 +33,9 @@ export default function Strategy({ lang }: { lang: string }) {
               <span className="phase-badge">Mentor Women Angola</span>
               <p><strong>{isEn ? "Leadership Hub" : "Hub de Liderança"}</strong></p>
               <p>{isEn ? "300 training scholarships and career development." : "300 Bolsas de capacitação e desenvolvimento de carreira."}</p>
-              <p>{isEn ? "AI in business and personal branding positioning." : "Inteligência Artificial em negócios e marca pessoal."}</p>
+              <p>{isEn ? "AI in business and personal branding positioning." : "Inteligência Artificial em negócios."}</p>
+              <p>{isEn ? "AI in business and personal branding positioning." : "Marca pessoal Pessoal e posicionamento."}</p>
+              <p>{isEn ? "AI in business and personal branding positioning." : "Empregabilidade via Kukulalink."}</p>
             </div>
           </div>
         </div>

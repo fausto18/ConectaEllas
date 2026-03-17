@@ -34,8 +34,8 @@ const Gallery: React.FC<GalleryProps> = ({ lang }) => {
 
       <p className="gallery-subtitle">
         {l === "pt"
-          ? "Momentos, eventos e conquistas na minha jornada tecnológica"
-          : "Moments, events and achievements in my technological journey"}
+          ? "Momentos, eventos e conquistas"
+          : "Moments, events and achievements"}
       </p>
 
       <div className="gallery-grid">

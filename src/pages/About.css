@@ -64,8 +64,8 @@
 /* Grid de Destaques */
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .feature-card {
@@ -103,4 +103,16 @@
   color: var(--text-about-dim);
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: #00d8ff;
+}
+
+.feature-icon.blue {
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
 }
