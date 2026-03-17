@@ -69,7 +69,7 @@ export default function Strategy({ lang }: { lang: string }) {
                   <span>CTO (Tech)</span>
                 </div>
                 <div className="node">
-                  <strong>Conecta Ella's Team</strong>
+                  <strong>Conecta Ellas Team</strong>
                   <span>Operations (COO)</span>
                 </div>
                 <div className="node">

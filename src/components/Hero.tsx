@@ -7,7 +7,7 @@ export default function Hero({ lang }: { lang: string }) {
     <section id="inicio" className="hero-section">
       <div className="hero-content">
         <h1 className="hero-title">
-          Conecta <span>Ella's</span>
+          Conecta <span>Ellas</span>
         </h1>
         <p className="hero-description">
           {isEn 
