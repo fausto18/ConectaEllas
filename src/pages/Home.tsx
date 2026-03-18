@@ -25,7 +25,7 @@ export default function Home({ lang }: any) {
         <Strategy lang={lang} />
       </div>
 
-      <div id="contact">
+      <div id="contacto">
         <Contact lang={lang} />
       </div>
 

@@ -1,119 +1,204 @@
-/* src/components/Hero.css - Versão Final com Glossy Shine */
+/* src/components/Hero.css - Versão Final Responsiva */
 
 .hero-section {
-  min-height: 80vh;
+  position: relative;
+  min-height: 90vh; /* Ocupa quase a altura total do ecrã no desktop */
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-color);
   text-align: center;
-  padding: 80px 5%;
-  transition: background-color 0.3s ease;
+  padding: 100px 5%; /* Padding generoso no desktop */
+  overflow: hidden;
+  background-color: #050a14; /* Fundo escuro base */
+}
+
+/* --- CAMADAS DE SOBREPOSIÇÃO (Overlays) --- */
+
+.hero-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Garante que a imagem preenche o espaço sem distorcer */
+  background-size: cover;
+  /* Centraliza a imagem. 'top' ajuda a manter as cabeças visíveis */
+  background-position: center top; 
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 1;
+  /* Recupera a vivacidade das cores se necessário */
+  filter: saturate(1.1) contrast(1.05) brightness(0.9);
+}
+
+.hero-constellation-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/connect.png'); 
+  background-size: 400px;
+  opacity: 0.15;
+  z-index: 2;
+  animation: techFloat 30s linear infinite;
+  pointer-events: none; /* Não interfere nos cliques */
+}
+
+@keyframes techFloat {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-1%, -1%); }
+  100% { transform: translate(0, 0); }
+}
+
+.hero-vignette-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.85) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* --- CONTEÚDO --- */
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px; /* Largura máxima maior para desktop */
 }
 
 .hero-title {
-  font-size: 3.2rem;
+  font-size: 4rem; /* Tamanho grande para desktop */
   font-weight: 850;
-  color: var(--text-color);
-  margin-bottom: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
   line-height: 1.1;
+  text-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
 }
 
 .hero-title span { color: var(--accent-color); }
 
+/* --- AJUSTE PEDIDO: TEXTO DESCRITIVO BRANCO E NEGRITADO --- */
 .hero-description {
-  font-size: 1.1rem;
-  color: var(--text-dim);
-  max-width: 580px;
-  margin: 0 auto 2.5rem;
+  color: #ffffff !important;
+  font-weight: 700; /* Negrito forte */
+  font-size: 1.25rem; /* Tamanho confortável para desktop */
   line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Sombra para legibilidade */
 }
 
-.hero-buttons { display: flex; gap: 15px; justify-content: center; }
+/* --- BOTÕES (Com bordas de 1px e Glossy Shine) --- */
 
-.btn-primary, .btn-secondary {
-  padding: 14px 30px;
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite quebrar linha em ecrãs pequenos */
+}
+
+.btn-primary-optic, .btn-outline-white {
+  padding: 16px 35px; /* Botões maiores no desktop */
   border-radius: 12px;
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
-  position: relative; /* Necessário para o brilho */
-  overflow: hidden;    /* Esconde o brilho fora do botão */
+  position: relative;
+  overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  z-index: 1;
 }
 
-/* --- EFEITO GLOSSY SHINE (O feixe de luz) --- */
-.btn-primary::after, .btn-secondary::after {
+/* Brilho Glossy Shine */
+.btn-primary-optic::after, .btn-outline-white::after {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
   transform: skewX(-25deg);
-  transition: none;
-  z-index: 2;
 }
 
-.btn-primary:hover::after, .btn-secondary:hover::after {
+.btn-primary-optic:hover::after, .btn-outline-white:hover::after {
   left: 150%;
-  transition: all 0.6s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 
-/* --- ESTILOS DE HOVER --- */
-
-.btn-primary { 
+/* Primário (Azul) - Borda Fina 1px */
+.btn-primary-optic { 
   background: var(--accent-color); 
   color: #fff; 
-  border: 2px solid var(--accent-color);
+  border: 1px solid var(--accent-color);
 }
 
-.btn-primary:hover {
+.btn-primary-optic:hover {
   background: transparent;
   color: var(--accent-color);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
 }
 
-.btn-secondary { 
-  border: 2px solid var(--border-color); 
-  color: var(--accent-color); 
+/* Secundário (Borda Branca) - Borda Fina 1px */
+.btn-outline-white { 
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff; 
   background: transparent;
 }
 
-.btn-secondary:hover {
-  background: var(--accent-color);
-  color: #fff;
-  border-color: var(--accent-color);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+.btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #ffffff;
 }
 
-.btn-primary:active, .btn-secondary:active {
-  transform: translateY(-1px);
-}
-
-/* --- RESPONSIVIDADE --- */
+/* ========================================= */
+/* --- AJUSTES DE RESPONSIVIDADE (TELEMÓVEL) --- */
+/* ========================================= */
 
 @media (max-width: 768px) {
-  .hero-title { font-size: 2.1rem; } 
-  .hero-description { font-size: 0.95rem; padding: 0 10px; }
-  .hero-buttons { flex-direction: column; align-items: center; width: 100%; }
-  .btn-primary, .btn-secondary { width: 100%; max-width: 280px; }
+  .hero-section {
+    min-height: 80vh; /* Ocupa um pouco menos de altura no telemóvel */
+    padding: 60px 5%; /* Padding menor para ganhar espaço */
+  }
+
+  /* Imagem de fundo: 'center' pode ser melhor para focar no conteúdo principal */
+  .hero-background-image {
+    background-position: center; 
+  }
+
+  .hero-title {
+    font-size: 2.5rem; /* Tamanho menor para o título no telemóvel */
+    margin-bottom: 1rem;
+  }
+
+  .hero-description {
+    font-size: 1.05rem; /* Descrição menor para caber melhor */
+    margin-bottom: 2.5rem;
+    padding: 0 10px; /* Pequeno padding nas laterais */
+  }
+
+  .hero-buttons {
+    flex-direction: column; /* Botões empilhados verticalmente no telemóvel */
+    align-items: center;
+    gap: 15px; /* Espaço menor entre botões */
+    width: 100%;
+  }
+
+  .btn-primary-optic, .btn-outline-white {
+    width: 100%; /* Botões ocupam a largura total disponível */
+    max-width: 280px; /* Mas não ficam muito grandes */
+    padding: 14px 25px; /* Padding menor para botões mais compactos */
+    font-size: 0.95rem; /* Texto do botão sutilmente menor */
+  }
 }
 
-@media (max-height: 500px) and (orientation: landscape) {
-  .hero-section { min-height: auto; padding: 40px 5%; }
-  .hero-title { font-size: 1.8rem; margin-bottom: 0.8rem; }
-  .hero-description { font-size: 0.85rem; margin-bottom: 1.5rem; max-width: 85%; }
-  .hero-buttons { flex-direction: row; gap: 10px; }
-  .btn-primary, .btn-secondary { padding: 10px 20px; font-size: 0.8rem; width: auto; }
+/* Ajustes para ecrãs muito pequenos (ex: iPhone SE anterior) */
+@media (max-width: 480px) {
+  .hero-title { font-size: 2.1rem; }
+  .hero-description { font-size: 0.95rem; }
 }
