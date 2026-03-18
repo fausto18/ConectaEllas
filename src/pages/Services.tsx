@@ -31,7 +31,7 @@ export default function Services({ lang }: { lang: string }) {
     <section id="servicos" className="services-section">
       <div className="container">
         <div className="services-header">
-          <h2 className="section-title">{isEn ? "Activities" : "Atividades"}</h2>
+          <h2 className="section-title">{isEn ? "Activities" : "Actividades"}</h2>
           <p className="section-subtitle">
             {isEn 
               ? "Experience a complete ecosystem of innovation and empowerment." 

@@ -88,7 +88,7 @@ export default function Strategy({ lang }: { lang: string }) {
             <p>
               {isEn 
                 ? "Omnichannel strategy focused on institutional credibility (MINTTICS, ANJE) and high-impact digital presence via O Telegrama and viral partners." 
-                : "Estratégia foca na credibilidade institucional (MINTTICS, ANJE) e presença digital de alto impacto via O Telegrama e parceiros de divulgação."}
+                : "Estratégia focada na credibilidade institucional (MINTTICS, ANJE) e presença digital de alto impacto via O Telegrama e parceiros de divulgação."}
             </p>
           </div>
         </div>

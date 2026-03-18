@@ -1,4 +1,4 @@
-/* src/components/Hero.css - Versão Final Reajustada */
+/* src/components/Hero.css - Versão Final com Glossy Shine */
 
 .hero-section {
   min-height: 80vh;
@@ -36,13 +36,73 @@
   border-radius: 12px;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.3s;
+  display: inline-block;
+  position: relative; /* Necessário para o brilho */
+  overflow: hidden;    /* Esconde o brilho fora do botão */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  z-index: 1;
 }
 
-.btn-primary { background: var(--accent-color); color: #fff; }
-.btn-secondary { border: 2px solid var(--border-color); color: var(--accent-color); }
+/* --- EFEITO GLOSSY SHINE (O feixe de luz) --- */
+.btn-primary::after, .btn-secondary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: none;
+  z-index: 2;
+}
 
-/* --- MOBILE (Retrato/Vertical) --- */
+.btn-primary:hover::after, .btn-secondary:hover::after {
+  left: 150%;
+  transition: all 0.6s ease-in-out;
+}
+
+/* --- ESTILOS DE HOVER --- */
+
+.btn-primary { 
+  background: var(--accent-color); 
+  color: #fff; 
+  border: 2px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary { 
+  border: 2px solid var(--border-color); 
+  color: var(--accent-color); 
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: var(--accent-color);
+  color: #fff;
+  border-color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:active, .btn-secondary:active {
+  transform: translateY(-1px);
+}
+
+/* --- RESPONSIVIDADE --- */
+
 @media (max-width: 768px) {
   .hero-title { font-size: 2.1rem; } 
   .hero-description { font-size: 0.95rem; padding: 0 10px; }
@@ -50,33 +110,10 @@
   .btn-primary, .btn-secondary { width: 100%; max-width: 280px; }
 }
 
-/* --- MOBILE (Rotação/Paisagem/Landscape) --- */
-/* Esta parte resolve o problema das fotos deitadas que enviou */
 @media (max-height: 500px) and (orientation: landscape) {
-  .hero-section {
-    min-height: auto; 
-    padding: 40px 5%;
-  }
-
-  .hero-title {
-    font-size: 1.8rem; /* Letra menor para caber na altura curta */
-    margin-bottom: 0.8rem;
-  }
-
-  .hero-description {
-    font-size: 0.85rem;
-    margin-bottom: 1.5rem;
-    max-width: 85%;
-  }
-
-  .hero-buttons {
-    flex-direction: row; /* Botões lado a lado para não empilhar e sumir */
-    gap: 10px;
-  }
-
-  .btn-primary, .btn-secondary {
-    padding: 10px 20px;
-    font-size: 0.8rem;
-    width: auto;
-  }
+  .hero-section { min-height: auto; padding: 40px 5%; }
+  .hero-title { font-size: 1.8rem; margin-bottom: 0.8rem; }
+  .hero-description { font-size: 0.85rem; margin-bottom: 1.5rem; max-width: 85%; }
+  .hero-buttons { flex-direction: row; gap: 10px; }
+  .btn-primary, .btn-secondary { padding: 10px 20px; font-size: 0.8rem; width: auto; }
 }

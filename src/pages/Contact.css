@@ -15,7 +15,7 @@
   flex-wrap: wrap;
 }
 
-/* --- BOTÃO DE EMAIL (Azul) --- */
+/* --- ESTILO BASE BOTÕES (Com Glossy Shine) --- */
 .contact-btn {
   display: flex;
   align-items: center;
@@ -24,31 +24,50 @@
   border-radius: 10px;
   text-decoration: none;
   background-color: var(--card-bg);
+  position: relative;
+  overflow: hidden;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  /* Borda azul padrão */
-  border: 2px solid #3b82f6; 
+  border: 1px solid #3b82f6; /* Borda 1px */
   color: #3b82f6;
   font-weight: 600;
+  z-index: 1;
 }
 
+/* Pseudo-elemento para o Brilho Glossy */
+.contact-btn::after, .contact-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  z-index: 2;
+  transition: none;
+}
+
+.contact-btn:hover::after, .contact-card:hover::after {
+  left: 150%;
+  transition: all 0.6s ease-in-out;
+}
+
+/* --- EMAIL E WHATSAPP --- */
 .contact-btn:hover {
   background-color: #3b82f6;
   color: white !important;
   transform: translateY(-5px);
-  /* Efeito de fluxo/brilho azul */
-  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
 }
 
-/* --- WHATSAPP (Verde) --- */
 .contact-btn.whatsapp {
-  border: 2px solid #25d366;
+  border: 1px solid #25d366; /* Borda 1px */
   color: #25d366;
 }
 
 .contact-btn.whatsapp:hover {
   background-color: #25d366;
-  color: white !important;
-  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
 }
 
 /* --- GRID DE CARDS SOCIAIS --- */
@@ -69,37 +88,41 @@
   text-decoration: none;
   background-color: var(--card-bg);
   min-width: 260px;
+  position: relative;
+  overflow: hidden;
   transition: all 0.4s ease;
-  /* Borda sutil que vai "brilhar" no hover */
-  border: 1px solid rgba(128, 128, 128, 0.2);
+  border: 1px solid rgba(128, 128, 128, 0.15); /* Borda muito fina e sutil */
   color: var(--text-color);
+  z-index: 1;
 }
 
-/* Efeito de Hover Geral para os Cards (GitHub, LinkedIn) */
-.contact-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--accent-color);
-  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.15);
+/* --- FACEBOOK (Bordas Finas 1px) --- */
+.contact-card.facebook-style {
+  border-left: 1px solid #1877F2; /* Destaque lateral agora é 1px */
 }
 
-/* LinkedIn específico com Hover Azul */
-.contact-card.linkedin-style {
-  border-left: 4px solid #0077b5; /* Destaque na lateral */
+.contact-card.facebook-style svg { color: #1877F2; }
+
+.contact-card.facebook-style:hover {
+  border-color: #1877F2; /* Borda de hover agora é 1px */
+  background-color: rgba(24, 119, 242, 0.03);
+  box-shadow: 0 15px 30px rgba(24, 119, 242, 0.1);
+  transform: translateY(-5px);
 }
 
-.contact-card.linkedin-style:hover {
-  border-color: #0077b5;
-  background-color: rgba(0, 119, 181, 0.05);
+/* --- INSTAGRAM (Bordas Finas 1px) --- */
+.contact-card.instagram-style {
+  border-left: 1px solid #E4405F; /* Destaque lateral agora é 1px */
 }
 
-.contact-card.linkedin-style svg {
-  color: #0077b5;
-}
+.contact-card.instagram-style svg { color: #d62976; }
 
-/* GitHub específico com Hover Roxo/Escuro */
-.contact-card.github-style:hover {
-  border-color: #6e5494;
-  box-shadow: 0 15px 30px rgba(110, 84, 148, 0.2);
+.contact-card.instagram-style:hover {
+  /* Borda de hover agora é 1px, sem gradiente para manter a finura */
+  border-color: #E4405F; 
+  background-color: rgba(228, 64, 95, 0.03);
+  box-shadow: 0 15px 30px rgba(214, 41, 118, 0.1);
+  transform: translateY(-5px);
 }
 
 /* Texto dentro dos cards */
@@ -111,6 +134,5 @@
 
 .contact-card div span {
   font-size: 0.85rem;
-  opacity: 0.7;
-  color: var(--text-color);
+  opacity: 0.6;
 }

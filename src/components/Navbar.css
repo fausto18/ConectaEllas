@@ -169,3 +169,7 @@
   --nav-bg: #f8faff; --text-color: #1a1a1a; --pill-bg: #000; --pill-text: #fff;
 }
 
+
+#inicio, #servicos, #contact {
+  scroll-margin-top: 90px;
+}

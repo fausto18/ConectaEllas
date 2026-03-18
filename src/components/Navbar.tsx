@@ -21,7 +21,7 @@ export default function Navbar({ toggleTheme, currentTheme, currentLang, setLang
   const langRef = useRef<HTMLDivElement>(null);
   const themeRef = useRef<HTMLDivElement>(null);
 
-  // Fecha dropdowns ao clicar fora
+  // Fecha dropdowns ao clicar fora (Desktop)
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(event.target as Node)) setShowLangMenu(false);
@@ -31,44 +31,80 @@ export default function Navbar({ toggleTheme, currentTheme, currentLang, setLang
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Fecha menu mobile ao navegar
+  // Fecha o menu mobile automaticamente ao navegar para uma nova rota
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
 
   const t = currentLang === "en" 
-    ? { inicio: "Home", galeria: "Gallery", serviços: "Services", path: "Services", artigos: "Articles", langTitle: "Language", themeTitle: "Theme" } 
-    : { inicio: "Início", galeria: "Galeria", serviços: "Serviços", path: "Serviços", artigos: "Artigos", langTitle: "Idioma", themeTitle: "Tema" };
+    ? { 
+        inicio: "Home", 
+        galeria: "Gallery", 
+        servicos: "Services", 
+        artigos: "Articles", 
+        contacto: "Contact",
+        langTitle: "Language", 
+        themeTitle: "Theme" 
+      } 
+    : { 
+        inicio: "Início", 
+        galeria: "Galeria", 
+        servicos: "Serviços", 
+        artigos: "Artigos", 
+        contacto: "Contacto",
+        langTitle: "Idioma", 
+        themeTitle: "Tema" 
+      };
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav className="navbar">
-      {/* LADO ESQUERDO: Seta de Início (Visível apenas na Galeria) */}
+      {/* LADO ESQUERDO: Lógica de exibição da Seta ou Logo */}
       <div className="nav-left">
-        <Link to="/" className="back-link">
-          <MdArrowBack />
-          <span>{t.inicio}</span>
-        </Link>
+        {location.pathname !== "/" ? (
+          <Link to="/" className="back-link">
+            <MdArrowBack />
+            <span>{t.inicio}</span>
+          </Link>
+        ) : (
+          <div className="logo">Conecta Ellas</div>
+        )}
       </div>
 
+      {/* BOTÃO HAMBÚRGUER (MOBILE) */}
       <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
         {isMenuOpen ? <MdClose /> : <MdMenu />}
       </button>
 
-      {/* CENTRO: Links de Navegação (Centralização Desktop) */}
+      {/* CENTRO: Links de Navegação (Desktop) */}
       <div className="nav-center desktop-only">
         <ul className="nav-links">
-          <li><HashLink smooth to="/#inicio" className={isActive("/") ? "pill-active" : ""}>{t.inicio}</HashLink></li>
-          <li><Link to="/galeria" className={isActive("/galeria") ? "pill-active" : ""}>{t.galeria}</Link></li>
-          <li><HashLink smooth to="/#experience" className={location.hash === "#experience" ? "pill-active" : ""}>{t.path}</HashLink></li>
-          <li><Link to="/articles" className={isActive("/articles") ? "pill-active" : ""}>{t.artigos}</Link></li>
+          <li>
+            <HashLink smooth to="/#inicio" className={location.hash === "#inicio" ? "pill-active" : ""}>
+              {t.inicio}
+            </HashLink>
+          </li>
+          <li>
+            <Link to="/galeria" className={isActive("/galeria") ? "pill-active" : ""}>
+              {t.galeria}
+            </Link>
+          </li>
+          <li>
+            <HashLink smooth to="/#servicos" className={location.hash === "#servicos" ? "pill-active" : ""}>
+              {t.servicos}
+            </HashLink>
+          </li>
+          <li>
+            <Link to="/articles" className={isActive("/articles") ? "pill-active" : ""}>
+              {t.artigos}
+            </Link>
+          </li>
         </ul>
       </div>
 
-      {/* LADO DIREITO: Dropdowns de Idioma e Tema */}
+      {/* LADO DIREITO: Dropdowns (Desktop) */}
       <div className="nav-right desktop-only">
-        {/* Dropdown Idioma */}
         <div className="dropdown-wrapper" ref={langRef}>
           <button className="icon-circle" onClick={() => setShowLangMenu(!showLangMenu)}>
             <MdLanguage />
@@ -87,7 +123,6 @@ export default function Navbar({ toggleTheme, currentTheme, currentLang, setLang
           )}
         </div>
 
-        {/* Dropdown Tema */}
         <div className="dropdown-wrapper" ref={themeRef}>
           <button className="icon-circle" onClick={() => setShowThemeMenu(!showThemeMenu)}>
             {currentTheme === "dark" ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
@@ -107,14 +142,18 @@ export default function Navbar({ toggleTheme, currentTheme, currentLang, setLang
         </div>
       </div>
 
-      {/* MENU MOBILE (Full Screen Modal) */}
+      {/* MENU MOBILE: Restored Language and Theme sections */}
       <div className={`nav-menu-mobile ${isMenuOpen ? "open" : ""}`}>
         <ul className="nav-links-mobile">
-          <li><HashLink to="/#inicio">{t.inicio}</HashLink></li>
-          <li><Link to="/galeria">{t.galeria}</Link></li>
-          <li><Link to="/articles">{t.artigos}</Link></li>
+          <li><HashLink smooth to="/#inicio" onClick={() => setIsMenuOpen(false)}>{t.inicio}</HashLink></li>
+          <li><Link to="/galeria" onClick={() => setIsMenuOpen(false)}>{t.galeria}</Link></li>
+          <li><HashLink smooth to="/#servicos" onClick={() => setIsMenuOpen(false)}>{t.servicos}</HashLink></li>
+          <li><Link to="/articles" onClick={() => setIsMenuOpen(false)}>{t.artigos}</Link></li>
         </ul>
+        
         <div className="menu-divider"></div>
+        
+        {/* SECÇÃO DE IDIOMA NO MOBILE */}
         <div className="mobile-selection-section">
           <p className="section-title">{t.langTitle}</p>
           <div className={`selection-item ${currentLang === 'en' ? 'active' : ''}`} onClick={() => setLang('en')}>
@@ -126,6 +165,8 @@ export default function Navbar({ toggleTheme, currentTheme, currentLang, setLang
             {currentLang === 'pt' && <MdCheck className="check-icon" />}
           </div>
         </div>
+
+        {/* SECÇÃO DE TEMA NO MOBILE */}
         <div className="mobile-selection-section">
           <p className="section-title">{t.themeTitle}</p>
           <div className={`selection-item ${currentTheme === 'dark' ? 'active' : ''}`} onClick={() => currentTheme !== 'dark' && toggleTheme()}>

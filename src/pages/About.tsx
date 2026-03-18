@@ -5,7 +5,7 @@ export default function About({ lang }: { lang: string }) {
   const t = {
     pt: {
       slogan: "Conectando mentes, transformando o futuro.",
-      title: "Sobre o Conecta Ellas",
+      title: "Quem Somos",
       p1: "O Conecta Ellas é uma plataforma nacional de conexão, capacitação e visibilidade para mulheres nas áreas de tecnologia, inovação e negócios.",
       missao: "Missão",
       missaoDesc: "Reduzir desigualdades e criar pontes reais entre o talento feminino e o ecossistema tecnológico nacional.",
@@ -13,13 +13,13 @@ export default function About({ lang }: { lang: string }) {
       visaoDesc: "Ser o movimento de referência em Angola para o empoderamento feminino e sustentabilidade de negócios digitais.",
       valores: "Valores",
       valoresDesc: "Inovação, Inclusividade, Colaboração Estratégica e Empoderamento Feminino.",
-      objetivo: "Objetivo 2026",
+      objetivo: "Objectivo",
       objetivoDesc: "Promover a vanguarda tecnológica e certificar 300 bolsas em empreendedorismo digital.",
     
     },
     en: {
       slogan: "Connecting minds, transforming the future.",
-      title: "About Conecta Ellas",
+      title: "Who we are",
       p1: "Conecta Ellas is a national platform for connection, training, and visibility for women in technology, innovation, and business.",
       missao: "Mission",
       missaoDesc: "Reduce inequalities and create real bridges between female talent and the national tech ecosystem.",
@@ -27,7 +27,7 @@ export default function About({ lang }: { lang: string }) {
       visaoDesc: "To be the benchmark movement in Angola for female empowerment and digital business sustainability.",
       valores: "Values",
       valoresDesc: "Innovation, Inclusivity, Strategic Collaboration, and Female Empowerment.",
-      objetivo: "2026 Objective",
+      objetivo: "Objective",
       objetivoDesc: "Promote technological vanguard and certify 300 scholarships in digital entrepreneurship.",
       
     }
@@ -48,8 +48,7 @@ export default function About({ lang }: { lang: string }) {
         <div className="about-main-card">
           <p>{content.p1}</p>
           <div className="ambassador-mention">
-            <small>{content.ambassadorLabel}</small>
-            <p><strong>{content.ambassadorName}</strong></p>
+           
           </div>
         </div>
         

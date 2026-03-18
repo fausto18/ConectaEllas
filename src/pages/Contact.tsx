@@ -25,7 +25,7 @@ export default function Contact({ lang }: any) {
   const content = lang === "en" ? t.en : t.pt;
 
   return (
-    <section className="contact" id="contacto">
+    <section className="contact" id="contact">
       <h2>{content.title}</h2>
 
       {/* Botões principais */}
@@ -49,13 +49,13 @@ export default function Contact({ lang }: any) {
         </a>
       </div>
 
-      {/* Cartões sociais - Atualizados para Instagram e Facebook */}
+      {/* Cartões sociais - Com classes de estilo realistas */}
       <div className="contact-cards">
         <a
           href="https://www.instagram.com/conecta_ellas" 
           target="_blank"
           rel="noopener noreferrer"
-          className="contact-card"
+          className="contact-card instagram-style"
         >
           <FaInstagram size={22} />
           <div>
@@ -68,7 +68,7 @@ export default function Contact({ lang }: any) {
           href="https://www.facebook.com/conectaellas" 
           target="_blank"
           rel="noopener noreferrer"
-          className="contact-card"
+          className="contact-card facebook-style"
         >
           <FaFacebook size={22} />
           <div>
