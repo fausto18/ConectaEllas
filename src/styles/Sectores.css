@@ -1,0 +1,62 @@
+/* src/style/Sectores.css */
+
+.sectores-section {
+  /* Usa a cor de fundo do tema (Dark ou Light) automaticamente */
+  background-color: var(--bg-color); 
+  padding: 80px 5%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.section-title {
+  /* Usa a cor de texto definida no :root ou [data-theme='light'] */
+  color: var(--text-color);
+  font-weight: 850;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.sectores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sector-card {
+  /* Usa o background de card variável e o efeito glass se houver */
+  background: var(--card-bg);
+  backdrop-filter: var(--card-glass);
+  border: 1px solid var(--border-color);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.sector-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+}
+
+/* TEXTO ADAPTÁVEL E SEMPRE NEGRITADO */
+.sector-info h3 {
+  color: var(--text-color); 
+  font-weight: 800; /* Mantém o negrito forte que você pediu */
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.sector-info p {
+  color: var(--text-dim); /* Usa a cor de texto secundária (cinza) */
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.sector-icon {
+  font-size: 2.5rem;
+  color: var(--accent-color); /* Usa o azul definido no tema */
+}

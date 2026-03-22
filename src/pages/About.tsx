@@ -8,7 +8,7 @@ export default function About({ lang }: { lang: string }) {
       title: "Quem Somos",
       p1: "O Conecta Ellas é uma plataforma nacional de conexão, capacitação e visibilidade para mulheres nas áreas de tecnologia, inovação e negócios.",
       missao: "Missão",
-      missaoDesc: "Reduzir desigualdades e criar pontes reais entre o talento feminino e o ecossistema tecnológico nacional.",
+      missaoDesc: "Fortalecer de forma sustentável a participação femenina na economia angolana, criando um ecossistema integrado de capacitação, incubação, investimento e empregabilidde.",
       visao: "Visão",
       visaoDesc: "Ser o movimento de referência em Angola para o empoderamento feminino e sustentabilidade de negócios digitais.",
       valores: "Valores",

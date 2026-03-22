@@ -143,7 +143,7 @@ body {
 /* ==========================================================================
    4. ESTRUTURA DAS SEÇÕES (About, Skills, Experience, etc)
    ========================================================================== */
-#sobre, #skills, #experience, #projects, #articles, #contact {
+#sobre, #skills, #experience, #projects, #registration, #contact {
   min-height: 100vh !important; 
   padding: 100px 20px;
   width: 100%;
@@ -210,7 +210,7 @@ section h2 {
   .home-name { font-size: 2.5rem; }
   .home-role { font-size: 1.4rem; }
   .btn-primary, .btn-outline { width: 100%; max-width: 300px; }
-  #sobre, #skills, #experience, #projects, #articles, #contact {
+  #sobre, #skills, #experience, #projects, #registration, #contact {
     padding: 80px 15px;
   }
 }

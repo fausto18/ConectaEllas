@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
       {/* CONTEÚDO PRINCIPAL (Centralizado e Responsivo) */}
       <div className="hero-content">
         <h1 className="hero-title">
-          Conecta <span>Ellas</span>
+          Angola Conecta <span>Ellas</span>
         </h1>
         
         {/* TEXTO DESCRITIVO (BRANCO E NEGRITADO) */}

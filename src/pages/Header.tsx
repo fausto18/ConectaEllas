@@ -10,7 +10,7 @@ export default function Header() {
     { name: "Início", path: "/#inicio", isHash: true },
     { name: "Galeria", path: "/galeria", isHash: false },
     { name: "Serviços", path: "/#servicos", isHash: true },
-    { name: "Artigos", path: "/articles", isHash: false },
+    { name: "Registro", path: "/Registration", isHash: false },
     { name: "Contacto", path: "/#contact", isHash: true },
   ];
 

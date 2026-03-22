@@ -9,11 +9,12 @@ import Footer from "./components/Footer";
 
 // PÁGINAS E COMPONENTES
 import Home from "./pages/Home";
-import Articles from "./pages/Articles";
+import Registration from "./pages/Registration";
 import GalleryPage from "./pages/GalleryPage"; 
 import GalleryDetails from "./components/GalleryDetails";
+import Participate from "./pages/Registration";
 
-// Tipagem para as rotas animadas para evitar erros de TS
+// Tipagem para as rotas animadas
 interface AnimatedRoutesProps {
   lang: string;
   theme: string;
@@ -25,34 +26,24 @@ function AnimatedRoutes({ lang, theme }: AnimatedRoutesProps) {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        {/* Rota Principal */}
         <Route path="/" element={<Home lang={lang} />} />
-        
-        {/* Página da Galeria (Lista de Cards) */}
         <Route path="/galeria" element={<GalleryPage lang={lang} />} />
-        
-        {/* Rota dinâmica para os detalhes (Lightbox) */}
         <Route path="/galeria/:id" element={<GalleryDetails lang={lang} theme={theme} />} />
-        
-        {/* Rota de Artigos */}
-        <Route path="/articles" element={<Articles lang={lang} />} />
+        <Route path="/participar" element={<Participate lang={lang} />} />
       </Routes>
     </AnimatePresence>
   );
 }
 
 export default function App() {
-  // Inicialização segura do estado com localStorage
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
   const [lang, setLang] = useState(() => localStorage.getItem("lang") || "pt");
 
-  // Efeito para sincronizar o tema no HTML e LocalStorage
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Efeito para sincronizar o idioma no LocalStorage
   useEffect(() => {
     localStorage.setItem("lang", lang);
   }, [lang]);
@@ -63,7 +54,6 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      {/* Partículas ativas apenas no dark mode */}
       {theme === "dark" && <ParticlesBackground />}
       
       <ScrollToTop />
@@ -75,7 +65,9 @@ export default function App() {
         setLang={setLang} 
       />
 
-      {/* Main Content Area */}
+      {/* Removi a importação duplicada do Footer que estava no final do teu arquivo 
+          para evitar o erro [BabelError] Identifier 'Footer' has already been declared.
+      */}
       <main style={{ minHeight: '80vh' }}>
         <AnimatedRoutes lang={lang} theme={theme} />
       </main>

@@ -41,7 +41,7 @@ export default function Navbar({ toggleTheme, currentTheme, currentLang, setLang
         inicio: "Home", 
         galeria: "Gallery", 
         servicos: "Services", 
-        artigos: "Articles", 
+        participar: "Participate", 
         contacto: "Contact",
         langTitle: "Language", 
         themeTitle: "Theme" 
@@ -50,7 +50,7 @@ export default function Navbar({ toggleTheme, currentTheme, currentLang, setLang
         inicio: "Início", 
         galeria: "Galeria", 
         servicos: "Serviços", 
-        artigos: "Artigos", 
+        participar: "Participar", 
         contacto: "Contacto",
         langTitle: "Idioma", 
         themeTitle: "Tema" 
@@ -96,8 +96,8 @@ export default function Navbar({ toggleTheme, currentTheme, currentLang, setLang
             </HashLink>
           </li>
           <li>
-            <Link to="/articles" className={isActive("/articles") ? "pill-active" : ""}>
-              {t.artigos}
+            <Link to="/participar" className={isActive("/participar") ? "pill-active" : ""}>
+              {t.participar}
             </Link>
           </li>
         </ul>
@@ -116,7 +116,7 @@ export default function Navbar({ toggleTheme, currentTheme, currentLang, setLang
                 {currentLang === 'en' && <MdCheck className="check-icon" />}
               </div>
               <div className={`drop-item ${currentLang === 'pt' ? 'selected' : ''}`} onClick={() => { setLang('pt'); setShowLangMenu(false); }}>
-                <span className="item-content"><span className="lang-code">AO</span> Português</span>
+                <span className="item-content"><span className="lang-code">PT</span> Português</span>
                 {currentLang === 'pt' && <MdCheck className="check-icon" />}
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function Navbar({ toggleTheme, currentTheme, currentLang, setLang
           <li><HashLink smooth to="/#inicio" onClick={() => setIsMenuOpen(false)}>{t.inicio}</HashLink></li>
           <li><Link to="/galeria" onClick={() => setIsMenuOpen(false)}>{t.galeria}</Link></li>
           <li><HashLink smooth to="/#servicos" onClick={() => setIsMenuOpen(false)}>{t.servicos}</HashLink></li>
-          <li><Link to="/articles" onClick={() => setIsMenuOpen(false)}>{t.artigos}</Link></li>
+          <li><Link to="/participar" onClick={() => setIsMenuOpen(false)}>{t.participar}</Link></li>
         </ul>
         
         <div className="menu-divider"></div>
@@ -161,7 +161,7 @@ export default function Navbar({ toggleTheme, currentTheme, currentLang, setLang
             {currentLang === 'en' && <MdCheck className="check-icon" />}
           </div>
           <div className={`selection-item ${currentLang === 'pt' ? 'active' : ''}`} onClick={() => setLang('pt')}>
-            <span><strong className="lang-code-mb">AO</strong> Português</span>
+            <span><strong className="lang-code-mb">PT</strong> Português</span>
             {currentLang === 'pt' && <MdCheck className="check-icon" />}
           </div>
         </div>
