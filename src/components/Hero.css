@@ -1,84 +1,55 @@
-/* src/components/Hero.css - Versão com Slideshow e Overlays */
+/* src/components/Hero.css - Versão Final com TODOS os efeitos e UX Mobile */
 
 .hero-section {
   position: relative;
-  min-height: 90vh;
+  height: 100vh;
+  height: 100svh; 
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 100px 5%;
+  padding: 0 24px;
   overflow: hidden;
-  background-color: #050a14; /* Fundo de segurança */
+  background-color: #050a14;
 }
 
-/* --- LÓGICA DO SLIDESHOW --- */
-
+/* --- SLIDESHOW E FILTROS --- */
 .hero-background-image {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-size: cover;
-  background-position: center top; 
-  background-repeat: no-repeat;
+  background-position: center center;
   z-index: 1;
-  
-  /* Efeito de Transição */
-  opacity: 0; 
-  transition: opacity 1.5s ease-in-out; /* Transição suave de 1.5s entre fotos */
-  filter: saturate(1.1) contrast(1.05) brightness(0.7); /* Brilho reduzido para leitura */
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  filter: brightness(0.4) saturate(1.2); /* Escurecido para o texto brilhar */
 }
 
-/* Classe injetada pelo React para mostrar o slide atual */
-.hero-background-image.active {
-  opacity: 1;
-}
-
-/* --- CAMADAS DE SOBREPOSIÇÃO (Overlays) --- */
-
-.hero-constellation-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://www.transparenttextures.com/patterns/connect.png'); 
-  background-size: 400px;
-  opacity: 0.15;
-  z-index: 2; /* Acima das imagens */
-  animation: techFloat 30s linear infinite;
-  pointer-events: none;
-}
+.hero-background-image.active { opacity: 1; }
 
 .hero-vignette-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Gradiente para escurecer as bordas e focar no centro */
-  background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.9) 100%);
+  inset: 0;
+  background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
   z-index: 3;
-  pointer-events: none;
 }
 
 /* --- CONTEÚDO --- */
-
 .hero-content {
   position: relative;
-  z-index: 10; /* Sempre no topo de tudo */
-  max-width: 900px;
+  z-index: 10;
+  width: 100%;
+  max-width: 1100px;
 }
 
 .hero-title {
-  font-size: 4rem;
-  font-weight: 850;
+  font-size: clamp(2.2rem, 8vw, 4.5rem);
+  font-weight: 900;
   color: #ffffff;
   margin-bottom: 1.5rem;
   line-height: 1.1;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  letter-spacing: -2px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 
 .hero-title span { color: var(--accent-color); }
@@ -86,74 +57,119 @@
 .hero-description {
   color: #ffffff !important;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   line-height: 1.6;
   max-width: 750px;
-  margin: 0 auto 3rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  margin: 0 auto 40px;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9);
 }
 
-/* --- BOTÕES --- */
-
+/* --- SISTEMA DE BOTÕES COM EFEITOS ESPECIAIS --- */
 .hero-buttons {
   display: flex;
   gap: 20px;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
 .btn-primary-optic, .btn-outline-white {
   padding: 16px 35px;
   border-radius: 12px;
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
+  font-size: 1.1rem;
   position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  overflow: hidden; /* IMPORTANTE: Para o brilho não sair do botão */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efeito elástico */
   border: 1px solid;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.btn-primary-optic { 
-  background: var(--accent-color); 
-  color: #fff; 
-  border-color: var(--accent-color);
-}
-
-.btn-outline-white { 
-  border-color: rgba(255, 255, 255, 0.5);
-  color: #ffffff; 
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
-}
-
-/* Efeito Glossy (Brilho que passa pelo botão) */
-.btn-primary-optic::after {
+/* RESTAURO: Efeito Glossy Shine (O raio de luz) */
+.btn-primary-optic::after, .btn-outline-white::after {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
-  width: 50%;
+  width: 60%;
   height: 100%;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+  background: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.4) 50%, 
+    rgba(255, 255, 255, 0) 100%
+  );
   transform: skewX(-25deg);
-  transition: 0.6s;
+  pointer-events: none;
+  transition: none;
 }
 
-.btn-primary-optic:hover::after {
+/* Disparar o brilho no Hover */
+.btn-primary-optic:hover::after, .btn-outline-white:hover::after {
   left: 150%;
+  transition: 0.8s ease-in-out;
 }
 
-/* --- RESPONSIVIDADE --- */
+/* BOTÃO PRIMÁRIO (AZUL) */
+.btn-primary-optic { 
+  background: var(--accent-color); 
+  color: #fff; 
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
 
+.btn-primary-optic:hover {
+  background: transparent;
+  color: var(--accent-color);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(59, 130, 246, 0.5); /* Sombra Neon */
+}
+
+/* BOTÃO SECUNDÁRIO (GLASS/OUTLINE) */
+.btn-outline-white { 
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff; 
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px); /* Efeito de vidro */
+}
+
+.btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* --- AJUSTES MOBILE --- */
 @media (max-width: 768px) {
-  .hero-title { font-size: 2.5rem; }
-  .hero-description { font-size: 1.1rem; }
-  .hero-buttons { flex-direction: column; align-items: center; }
-  .btn-primary-optic, .btn-outline-white { width: 100%; max-width: 280px; }
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 5%;
+  }
+
+  .btn-primary-optic, .btn-outline-white {
+    width: 100%;
+    max-width: 320px;
+    padding: 18px 0;
+    font-size: 1.05rem;
+  }
+  
+  .hero-title {
+    margin-bottom: 12px;
+  }
+  
+  .hero-description {
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
 }
 
 @keyframes techFloat {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(-1%, -1%); }
-  100% { transform: translate(0, 0); }
+  from { background-position: 0 0; }
+  to { background-position: 800px 800px; }
 }
