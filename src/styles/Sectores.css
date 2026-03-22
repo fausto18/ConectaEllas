@@ -1,30 +1,39 @@
-/* src/style/Sectores.css */
+/* src/styles/Sectores.css */
 
 .sectores-section {
-  /* Usa a cor de fundo do tema (Dark ou Light) automaticamente */
-  background-color: var(--bg-color); 
+  background-color: var(--bg-color);
   padding: 80px 5%;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .section-title {
-  /* Usa a cor de texto definida no :root ou [data-theme='light'] */
   color: var(--text-color);
   font-weight: 850;
   text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.section-title span {
+  color: #ff6b00; /* Laranja no destaque do título */
+}
+
+.sectores-intro {
+  text-align: center;
+  color: var(--text-dim);
+  font-weight: 600;
   margin-bottom: 50px;
 }
 
 .sectores-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .sector-card {
-  /* Usa o background de card variável e o efeito glass se houver */
   background: var(--card-bg);
   backdrop-filter: var(--card-glass);
   border: 1px solid var(--border-color);
@@ -33,30 +42,44 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .sector-card:hover {
   transform: translateY(-5px);
-  border-color: var(--accent-color);
+  border-color: #ff6b00;
+  box-shadow: var(--shadow-sm);
 }
 
-/* TEXTO ADAPTÁVEL E SEMPRE NEGRITADO */
+/* --- ÍCONES EM LARANJA --- */
+.sector-icon {
+  font-size: 2.2rem;
+  color: #ff6b00; /* Cor Laranja Solicitada */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: 60px;
+  background: rgba(255, 107, 0, 0.1); /* Fundo laranja suave atrás do ícone */
+  border-radius: 15px;
+}
+
 .sector-info h3 {
-  color: var(--text-color); 
-  font-weight: 800; /* Mantém o negrito forte que você pediu */
-  font-size: 1.2rem;
+  color: var(--text-color);
+  font-weight: 800;
   margin: 0;
+  font-size: 1.2rem;
 }
 
 .sector-info p {
-  color: var(--text-dim); /* Usa a cor de texto secundária (cinza) */
-  font-weight: 600;
+  color: var(--text-dim);
+  font-weight: 500;
+  font-size: 0.95rem;
   margin-top: 5px;
 }
 
-.sector-icon {
-  font-size: 2.5rem;
-  color: var(--accent-color); /* Usa o azul definido no tema */
+/* Ajuste Mobile */
+@media (max-width: 600px) {
+  .section-title { font-size: 2rem; }
+  .sector-card { padding: 20px; }
 }
